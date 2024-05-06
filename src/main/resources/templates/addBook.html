@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Book</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        form {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"],
+        input[type="number"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<form th:object="${book}" action="/addBook" method="post">
+    <label for="isbn">ISBN:</label>
+    <input type="text" id="isbn" name="isbn" th:field="*{isbn}" />
+
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" th:field="*{title}" />
+
+    <label for="author">Author:</label>
+    <input type="text" id="author" name="author" th:field="*{author}" />
+
+    <label for="price">Price:</label>
+    <input type="number" id="price" name="price" th:field="*{price}" />
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" th:field="*{description}"></textarea>
+
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>
